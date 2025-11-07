@@ -1,4 +1,4 @@
-unit Unit1;
+unit project2;
 
 {$mode objfpc}{$H+}
 
@@ -6,7 +6,8 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, ComCtrls,
-  TASeries, TAGraph, sqldb, SQLite3Conn, ExtCtrls, fphttpserver, fpjson, jsonparser;
+  TASeries, TAGraph, sqldb, SQLite3Conn, ExtCtrls, fphttpserver, fpjson, jsonparser, Buttons,
+  LazSerial, Math, opensslsocket, SQLDB;
 
 type
 

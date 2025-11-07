@@ -1,4 +1,4 @@
-unit Unit1;
+unit project2;
 
 {$mode objfpc}{$H+}
 
