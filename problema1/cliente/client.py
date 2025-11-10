@@ -1,6 +1,6 @@
-import requests
+import requests as rq
 import time
-import random
+import random as ra
 from datetime import datetime
 
 class ClienteAmbiental:
@@ -13,18 +13,18 @@ class ClienteAmbiental:
             'ide': id_estacion,
             'sFe': datetime.now().strftime('%Y-%m-%d'),
             'sHo': datetime.now().strftime('%H:%M:%S'),
-            'P25': round(random.uniform(10.0, 150.0), 2),
-            'P10': round(random.uniform(20.0, 200.0), 2),
-            'nTe': round(random.uniform(10.0, 40.0), 2),
-            'nHr': round(random.uniform(30.0, 90.0), 2),
-            'nPa': round(random.uniform(950.0, 1050.0), 2)
+            'P25': ra.gauss(mu=10, sigma=3),
+            'P10': ra.gauss(mu=15, sigma=4),
+            'nTe': ra.gauss(mu=20, sigma=4),
+            'nHr': ra.gauss(mu=70, sigma=2),
+            'nPa': ra.gauss(mu=1000, sigma=10)
         }
     
     def enviar_datos(self, datos):
         try:
-            respuesta = requests.post(self.url_servidor, json=datos, timeout=5)
+            respuesta = rq.post(self.url_servidor, json=datos, timeout=5)
             return respuesta.status_code == 200, respuesta.text
-        except requests.exceptions.RequestException as e:
+        except rq.exceptions.RequestException as e:
             return False, str(e)
     
     def ejecutar(self):
@@ -33,7 +33,7 @@ class ClienteAmbiental:
         print("-" * 60)
         
         while True:
-            id_estacion = random.randint(1, self.num_estaciones)
+            id_estacion = ra.randint(1, self.num_estaciones)
             datos = self.generar_datos_estacion(id_estacion)
             
             exito, mensaje = self.enviar_datos(datos)

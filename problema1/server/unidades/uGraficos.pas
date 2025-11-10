@@ -18,6 +18,7 @@ type
     procedure InicializarSeries;
     procedure ActualizarSerie(NumEstacion: Integer; Valor: Double);
     procedure MostrarSerie(NumEstacion: Integer);
+    procedure MostrarTodasLasSeries;
     procedure ExportarPNG;
   end;
 
@@ -42,7 +43,7 @@ begin
   Serie.SeriesColor := COLORES_SERIES[Indice];
   Serie.ShowPoints := True;
   Serie.LinePen.Width := 2;
-  Serie.Active := (Indice = 0);
+  Serie.Active := True;  // Todas las series activas por defecto
 end;
 
 procedure TGestorGraficos.InicializarSeries;
@@ -96,10 +97,44 @@ procedure TGestorGraficos.MostrarSerie(NumEstacion: Integer);
 var
   i: Integer;
 begin
-  for i := 0 to FChart.SeriesCount - 1 do
-    TLineSeries(FChart.Series[i]).Active := (i = NumEstacion);
+  // Validar que el índice esté en rango
+  if (NumEstacion < 0) or (NumEstacion >= FChart.SeriesCount) then
+    Exit;
   
+  // Activar solo la serie seleccionada
+  for i := 0 to FChart.SeriesCount - 1 do
+  begin
+    if TObject(FChart.Series[i]) is TLineSeries then
+      TLineSeries(FChart.Series[i]).Active := (i = NumEstacion);
+  end;
+  
+  // Actualizar el título del gráfico
+  FChart.Title.Text.Clear;
+  FChart.Title.Text.Add(Format('Monitoreo Estación %d - PM2.5', [NumEstacion + 1]));
+  
+  // Forzar repintado
   FChart.Invalidate;
+  FChart.Repaint;
+end;
+
+procedure TGestorGraficos.MostrarTodasLasSeries;
+var
+  i: Integer;
+begin
+  // Activar todas las series
+  for i := 0 to FChart.SeriesCount - 1 do
+  begin
+    if TObject(FChart.Series[i]) is TLineSeries then
+      TLineSeries(FChart.Series[i]).Active := True;
+  end;
+  
+  // Restaurar título original
+  FChart.Title.Text.Clear;
+  FChart.Title.Text.Add('Monitoreo de Estaciones Ambientales - Todas');
+  
+  // Forzar repintado
+  FChart.Invalidate;
+  FChart.Repaint;
 end;
 
 procedure TGestorGraficos.ExportarPNG;

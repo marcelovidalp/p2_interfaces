@@ -8,7 +8,11 @@
       <Unit>
         <Filename Value="MonitoreoAmbiental.lpr"/>
         <IsPartOfProject Value="True"/>
-        <UsageCount Value="20"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="3"/>
+        <CursorPos X="29" Y="14"/>
+        <UsageCount Value="27"/>
+        <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="unidades\uMainForm.pas"/>
@@ -16,52 +20,178 @@
         <ComponentName Value="FormPrincipal"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
-        <UsageCount Value="20"/>
+        <TopLine Value="68"/>
+        <CursorPos X="3" Y="68"/>
+        <UsageCount Value="27"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="unidades\uServidor.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="4"/>
-        <UsageCount Value="20"/>
+        <EditorIndex Value="5"/>
+        <TopLine Value="3"/>
+        <CursorPos Y="107"/>
+        <UsageCount Value="27"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="unidades\uDB.pas"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="2"/>
-        <CursorPos Y="36"/>
-        <UsageCount Value="20"/>
+        <TopLine Value="41"/>
+        <CursorPos X="26" Y="15"/>
+        <UsageCount Value="27"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="unidades\uGraficos.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="3"/>
-        <UsageCount Value="20"/>
+        <EditorIndex Value="4"/>
+        <TopLine Value="87"/>
+        <CursorPos Y="99"/>
+        <UsageCount Value="27"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="unidades\uMainForm.lfm"/>
-        <CursorPos X="41" Y="10"/>
-        <UsageCount Value="10"/>
+        <TopLine Value="13"/>
+        <CursorPos X="31" Y="13"/>
+        <UsageCount Value="13"/>
         <Loaded Value="True"/>
         <DefaultSyntaxHighlighter Value="LFM"/>
       </Unit>
+      <Unit>
+        <Filename Value="..\..\..\Uni\Interfaces\Tuto INFO1128\Tuto INFO1128\Tutorial 4\Server\Unit1.pas"/>
+        <ComponentName Value="fMain"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="12"/>
+        <UsageCount Value="10"/>
+      </Unit>
     </Units>
-    <JumpHistory HistoryIndex="2">
+    <JumpHistory HistoryIndex="29">
       <Position>
-        <Filename Value="unidades\uMainForm.lfm"/>
+        <Filename Value="unidades\uGraficos.pas"/>
+        <Caret Line="107" TopLine="89"/>
       </Position>
       <Position>
         <Filename Value="unidades\uMainForm.lfm"/>
-        <Caret Line="10" Column="41"/>
+        <Caret Line="13" Column="31"/>
+      </Position>
+      <Position>
+        <Filename Value="unidades\uDB.pas"/>
+        <Caret Line="32" Column="27" TopLine="19"/>
+      </Position>
+      <Position>
+        <Filename Value="unidades\uDB.pas"/>
+        <Caret Line="13" Column="5" TopLine="2"/>
+      </Position>
+      <Position>
+        <Filename Value="MonitoreoAmbiental.lpr"/>
+        <Caret Line="23" TopLine="5"/>
+      </Position>
+      <Position>
+        <Filename Value="MonitoreoAmbiental.lpr"/>
+        <Caret Line="9" Column="3" TopLine="5"/>
       </Position>
       <Position>
         <Filename Value="unidades\uMainForm.pas"/>
+        <Caret Line="15" Column="48"/>
+      </Position>
+      <Position>
+        <Filename Value="unidades\uMainForm.pas"/>
+        <Caret Line="9" Column="52"/>
+      </Position>
+      <Position>
+        <Filename Value="unidades\uDB.pas"/>
+        <Caret Line="13" Column="5" TopLine="2"/>
+      </Position>
+      <Position>
+        <Filename Value="unidades\uDB.pas"/>
+        <Caret Line="101" Column="30" TopLine="95"/>
+      </Position>
+      <Position>
+        <Filename Value="unidades\uMainForm.pas"/>
+        <Caret Line="9" Column="52" TopLine="9"/>
+      </Position>
+      <Position>
+        <Filename Value="unidades\uDB.pas"/>
+        <Caret Line="8" Column="16" TopLine="2"/>
+      </Position>
+      <Position>
+        <Filename Value="unidades\uDB.pas"/>
+        <Caret Line="18" Column="47"/>
+      </Position>
+      <Position>
+        <Filename Value="unidades\uMainForm.pas"/>
+        <Caret Line="56" Column="19" TopLine="49"/>
+      </Position>
+      <Position>
+        <Filename Value="unidades\uMainForm.pas"/>
+        <Caret Line="71" Column="53" TopLine="56"/>
+      </Position>
+      <Position>
+        <Filename Value="unidades\uMainForm.pas"/>
+        <Caret Line="75" Column="36" TopLine="21"/>
+      </Position>
+      <Position>
+        <Filename Value="unidades\uDB.pas"/>
+        <Caret Line="6" Column="40"/>
+      </Position>
+      <Position>
+        <Filename Value="MonitoreoAmbiental.lpr"/>
+        <Caret Line="25" Column="5" TopLine="2"/>
+      </Position>
+      <Position>
+        <Filename Value="MonitoreoAmbiental.lpr"/>
+        <Caret Line="23" Column="50"/>
+      </Position>
+      <Position>
+        <Filename Value="MonitoreoAmbiental.lpr"/>
+        <Caret Line="24" Column="42"/>
+      </Position>
+      <Position>
+        <Filename Value="unidades\uDB.pas"/>
+        <Caret Line="6" Column="40"/>
+      </Position>
+      <Position>
+        <Filename Value="unidades\uMainForm.lfm"/>
+        <Caret Line="13" Column="31" TopLine="13"/>
+      </Position>
+      <Position>
+        <Filename Value="unidades\uDB.pas"/>
+        <Caret Line="15" Column="26" TopLine="4"/>
+      </Position>
+      <Position>
+        <Filename Value="unidades\uMainForm.pas"/>
+        <Caret Line="62" Column="15"/>
+      </Position>
+      <Position>
+        <Filename Value="unidades\uMainForm.pas"/>
+        <Caret Line="45" Column="5" TopLine="34"/>
+      </Position>
+      <Position>
+        <Filename Value="unidades\uMainForm.pas"/>
+        <Caret Line="233" Column="58" TopLine="118"/>
+      </Position>
+      <Position>
+        <Filename Value="unidades\uMainForm.pas"/>
+        <Caret Line="68" Column="3" TopLine="56"/>
+      </Position>
+      <Position>
+        <Filename Value="MonitoreoAmbiental.lpr"/>
+        <Caret Line="25"/>
+      </Position>
+      <Position>
+        <Filename Value="MonitoreoAmbiental.lpr"/>
+        <Caret Line="24" Column="5" TopLine="2"/>
+      </Position>
+      <Position>
+        <Filename Value="unidades\uMainForm.pas"/>
+        <Caret Line="68" Column="3" TopLine="68"/>
       </Position>
     </JumpHistory>
     <RunParams>

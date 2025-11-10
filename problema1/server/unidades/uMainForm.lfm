@@ -1,63 +1,459 @@
 object FormPrincipal: TFormPrincipal
-  Left = 250
-  Height = 600
-  Top = 100
-  Width = 900
-  Caption = 'Sistema de Monitoreo Ambiental'
-  ClientHeight = 600
-  ClientWidth = 900
+  Left = 200
+  Height = 520
+  Top = 80
+  Width = 1000
+  Caption = 'Sistema de Monitoreo Ambiental - Data Logger v1.0'
+  ClientHeight = 520
+  ClientWidth = 1000
+  Color = clForm
+  LCLVersion = '4.2.0.0'
+  Position = poScreenCenter
   OnCreate = FormCreate
   OnDestroy = FormDestroy
-  LCLVersion = '4.2.0.0'
-  object Chart1: TChart
-    Left = 16
-    Height = 450
-    Top = 80
-    Width = 868
-    AxisList = <    
-      item
-        Minors = <>
-        Title.LabelFont.Orientation = 900
-      end    
-      item
-        Alignment = calBottom
-        Minors = <>
-      end>
-    Foot.Brush.Color = clBtnFace
-    Foot.Font.Color = clBlue
-    Title.Brush.Color = clBtnFace
-    Title.Font.Color = clBlue
-    Title.Text.Strings = (
-      'Monitoreo de Estaciones Ambientales'
-    )
-    Anchors = [akTop, akLeft, akRight, akBottom]
+  
+  object PanelPrincipal: TPanel
+    Left = 0
+    Height = 520
+    Top = 0
+    Width = 1000
+    Align = alClient
+    BevelOuter = bvNone
+    Caption = ''
+    Color = 15790320
     ParentColor = False
+    TabOrder = 0
+    
+    object PanelSuperior: TPanel
+      Left = 0
+      Height = 50
+      Top = 0
+      Width = 1000
+      Align = alTop
+      BevelOuter = bvNone
+      Caption = ''
+      Color = 12632256
+      ParentColor = False
+      TabOrder = 0
+      
+      object ComboBox1: TComboBox
+        Left = 8
+        Height = 23
+        Top = 14
+        Width = 160
+        ItemHeight = 15
+        Style = csDropDownList
+        TabOrder = 0
+        OnChange = ComboBox1Change
+      end
+      
+      object Button1: TButton
+        Left = 175
+        Height = 25
+        Top = 13
+        Width = 100
+        Caption = 'Exportar'
+        TabOrder = 1
+        OnClick = Button1Click
+      end
+      
+      object CheckBoxRecepcion: TCheckBox
+        Left = 285
+        Height = 19
+        Top = 16
+        Width = 90
+        Caption = 'Recibir datos'
+        Checked = True
+        State = cbChecked
+        TabOrder = 2
+        OnChange = CheckBoxRecepcionChange
+      end
+      
+      object LabelEstado: TLabel
+        Left = 385
+        Height = 15
+        Top = 18
+        Width = 300
+        Caption = 'Esperando datos...'
+        Font.Color = clBlue
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      
+      object LabelFechaHora: TLabel
+        Left = 750
+        Height = 15
+        Top = 18
+        Width = 200
+        Caption = '08/11/2025 - 00:00:00'
+        Font.Color = clMaroon
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+    end
+    
+    object PanelIzquierdo: TPanel
+      Left = 0
+      Height = 470
+      Top = 50
+      Width = 220
+      Align = alLeft
+      BevelOuter = bvLowered
+      Caption = ''
+      Color = 15066597
+      ParentColor = False
+      TabOrder = 1
+      
+      object LabelTitle: TLabel
+        Left = 8
+        Height = 16
+        Top = 8
+        Width = 204
+        Alignment = taCenter
+        Caption = '[ SENSORES EN LÍNEA ]'
+        Font.Color = clNavy
+        Font.Size = 9
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      
+      object PanelTemp: TPanel
+        Left = 8
+        Height = 80
+        Top = 30
+        Width = 64
+        BevelOuter = bvRaised
+        Caption = ''
+        Color = clWhite
+        ParentColor = False
+        TabOrder = 0
+        
+        object LabelTempTitulo: TLabel
+          Left = 4
+          Height = 13
+          Top = 4
+          Width = 56
+          Alignment = taCenter
+          Caption = 'Temp'
+          Font.Size = 8
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        
+        object LabelTempValor: TLabel
+          Left = 4
+          Height = 32
+          Top = 20
+          Width = 56
+          Alignment = taCenter
+          Caption = '20'
+          Font.Color = clRed
+          Font.Size = 20
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        
+        object LabelTempUnidad: TLabel
+          Left = 4
+          Height = 11
+          Top = 55
+          Width = 56
+          Alignment = taCenter
+          Caption = '°C'
+          Font.Size = 8
+          ParentFont = False
+        end
+      end
+      
+      object PanelHumedad: TPanel
+        Left = 78
+        Height = 80
+        Top = 30
+        Width = 64
+        BevelOuter = bvRaised
+        Caption = ''
+        Color = clWhite
+        ParentColor = False
+        TabOrder = 1
+        
+        object LabelHumedadTitulo: TLabel
+          Left = 4
+          Height = 13
+          Top = 4
+          Width = 56
+          Alignment = taCenter
+          Caption = 'Humedad'
+          Font.Size = 8
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        
+        object LabelHumedadValor: TLabel
+          Left = 4
+          Height = 32
+          Top = 20
+          Width = 56
+          Alignment = taCenter
+          Caption = '65'
+          Font.Color = clBlue
+          Font.Size = 20
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        
+        object LabelHumedadUnidad: TLabel
+          Left = 4
+          Height = 11
+          Top = 55
+          Width = 56
+          Alignment = taCenter
+          Caption = '%'
+          Font.Size = 8
+          ParentFont = False
+        end
+      end
+      
+      object PanelPresion: TPanel
+        Left = 148
+        Height = 80
+        Top = 30
+        Width = 64
+        BevelOuter = bvRaised
+        Caption = ''
+        Color = clWhite
+        ParentColor = False
+        TabOrder = 2
+        
+        object LabelPresionTitulo: TLabel
+          Left = 4
+          Height = 13
+          Top = 4
+          Width = 56
+          Alignment = taCenter
+          Caption = 'Presión'
+          Font.Size = 8
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        
+        object LabelPresionValor: TLabel
+          Left = 4
+          Height = 25
+          Top = 20
+          Width = 56
+          Alignment = taCenter
+          Caption = '1013'
+          Font.Color = clGreen
+          Font.Size = 16
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        
+        object LabelPresionUnidad: TLabel
+          Left = 4
+          Height = 11
+          Top = 50
+          Width = 56
+          Alignment = taCenter
+          Caption = 'hPa'
+          Font.Size = 8
+          ParentFont = False
+        end
+      end
+      
+      object GroupBoxMP: TGroupBox
+        Left = 8
+        Height = 80
+        Top = 120
+        Width = 204
+        Caption = 'Material Particulado'
+        Font.Size = 8
+        Font.Style = [fsBold]
+        ParentFont = False
+        TabOrder = 3
+        
+        object LabelMP25: TLabel
+          Left = 8
+          Height = 13
+          Top = 20
+          Width = 35
+          Caption = 'MP 2.5:'
+          Font.Size = 8
+          ParentFont = False
+        end
+        
+        object LabelMP25Valor: TLabel
+          Left = 50
+          Height = 15
+          Top = 20
+          Width = 40
+          Caption = '12.5'
+          Font.Color = clMaroon
+          Font.Size = 10
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        
+        object LabelMP10: TLabel
+          Left = 8
+          Height = 13
+          Top = 40
+          Width = 30
+          Caption = 'MP 10:'
+          Font.Size = 8
+          ParentFont = False
+        end
+        
+        object LabelMP10Valor: TLabel
+          Left = 50
+          Height = 15
+          Top = 40
+          Width = 40
+          Caption = '25.8'
+          Font.Color = clMaroon
+          Font.Size = 10
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        
+        object LabelUnidadMP: TLabel
+          Left = 100
+          Height = 13
+          Top = 30
+          Width = 35
+          Caption = 'μg/m³'
+          Font.Size = 8
+          ParentFont = False
+        end
+      end
+      
+      object GroupBoxEstacion: TGroupBox
+        Left = 8
+        Height = 60
+        Top = 210
+        Width = 204
+        Caption = 'Información de Estación'
+        Font.Size = 8
+        Font.Style = [fsBold]
+        ParentFont = False
+        TabOrder = 4
+        
+        object LabelEstacionID: TLabel
+          Left = 8
+          Height = 13
+          Top = 20
+          Width = 50
+          Caption = 'Estación:'
+          Font.Size = 8
+          ParentFont = False
+        end
+        
+        object LabelEstacionValor: TLabel
+          Left = 65
+          Height = 15
+          Top = 20
+          Width = 30
+          Caption = 'N/A'
+          Font.Color = clNavy
+          Font.Size = 10
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        
+        object LabelUltimoDato: TLabel
+          Left = 8
+          Height = 13
+          Top = 38
+          Width = 180
+          Caption = 'Último: --'
+          Font.Size = 8
+          ParentFont = False
+        end
+      end
+      
+      object GroupBoxEstado: TGroupBox
+        Left = 8
+        Height = 80
+        Top = 280
+        Width = 204
+        Caption = 'Estado del Sistema'
+        Font.Size = 8
+        Font.Style = [fsBold]
+        ParentFont = False
+        TabOrder = 5
+        
+        object LabelServidor: TLabel
+          Left = 8
+          Height = 13
+          Top = 20
+          Width = 180
+          Caption = 'Servidor: Puerto 8080'
+          Font.Color = clGreen
+          Font.Size = 8
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        
+        object LabelBaseDatos: TLabel
+          Left = 8
+          Height = 13
+          Top = 38
+          Width = 180
+          Caption = 'Base de Datos: clima.db'
+          Font.Color = clGreen
+          Font.Size = 8
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        
+        object LabelRecepcion: TLabel
+          Left = 8
+          Height = 13
+          Top = 56
+          Width = 180
+          Caption = 'Recepción: Activa'
+          Font.Color = clGreen
+          Font.Size = 8
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+      end
+    end
+    
+    object Chart1: TChart
+      Left = 220
+      Height = 470
+      Top = 50
+      Width = 780
+      Align = alClient
+      AxisList = <    
+        item
+          Marks.LabelBrush.Style = bsClear
+          Minors = <>
+          Title.LabelFont.Orientation = 900
+          Title.LabelBrush.Style = bsClear
+          Title.Caption = 'μg/m³'
+        end    
+        item
+          Alignment = calBottom
+          Marks.LabelBrush.Style = bsClear
+          Minors = <>
+          Title.LabelBrush.Style = bsClear
+          Title.Caption = 'Tiempo'
+        end>
+      Foot.Brush.Color = clBtnFace
+      Foot.Font.Color = clBlue
+      Title.Brush.Color = clBtnFace
+      Title.Font.Color = clBlue
+      Title.Text.Strings = (
+        'Monitoreo Ambiental en Tiempo Real'
+      )
+    end
   end
-  object ComboBox1: TComboBox
-    Left = 16
-    Height = 29
-    Top = 24
-    Width = 200
-    ItemHeight = 0
-    OnChange = ComboBox1Change
-    Style = csDropDownList
-    TabOrder = 1
-  end
-  object Button1: TButton
-    Left = 232
-    Height = 29
-    Top = 24
-    Width = 150
-    Caption = 'Exportar Gráfico'
-    OnClick = Button1Click
-    TabOrder = 2
-  end
-  object LabelEstado: TLabel
-    Left = 400
-    Height = 20
-    Top = 28
-    Width = 200
-    Caption = 'Esperando datos...'
-    ParentColor = False
+  
+  object Timer1: TTimer
+    OnTimer = Timer1Timer
+    Left = 960
+    Top = 8
   end
 end
